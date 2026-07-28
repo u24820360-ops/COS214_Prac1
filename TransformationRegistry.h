@@ -2,12 +2,6 @@
 #define TRANSFORMATIONREGISTRY_H
 
 #include "Transformation.h"
-#include <string>
-#include <iostream>
-#include <vector>
-#include <map>
-
-using namespace std;
 
 class TransformationRegistry {
 private:
