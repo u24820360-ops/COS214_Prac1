@@ -5,6 +5,7 @@
 
 class AggregateByRegionStep : public Transformation {
 public:
+    AggregateByRegionStep() : Transformation("aggregate") {}
     virtual Transformation* clone();
     virtual vector<string> apply(vector<string>);
 };
