@@ -11,7 +11,10 @@ Pipeline::Pipeline(ConnectorFactory *factory)
 void Pipeline::run()
 {
 	// calls the relevant methods in the given order
-	//  connect();
+	this->connect();
+	this->extract();
+	this->transform();
+	this->load();
 }
 
 void Pipeline::addStep(Transformation *transformation)
@@ -23,6 +26,14 @@ void Pipeline::addStep(Transformation *transformation)
 RunCheckpoint *Pipeline::createCheckPoint()
 {
 	// task 4
+	return new RunCheckpoint(this->stage, this->records);
+}
+
+void Pipeline::restore(RunCheckpoint* cp)
+{
+	// task 4
+	this->stage=cp->getStage();
+	this->records=cp->getRecords();
 }
 
 Pipeline::~Pipeline()
@@ -38,22 +49,24 @@ Pipeline::~Pipeline()
 
 void Pipeline::connect()
 {
-	// ConnectorFactory connector = this->factory.getSource?
+
+	Connector *connector = this->factory->createConnector();
+	std::cout << "Connecting to " << connector->getSource() << std::endl;
+	this->stage = 1;
+	delete connector;
+	connector = nullptr;
 }
 
 void Pipeline::transform()
 {
-	auto i = this->steps.begin();
-	auto j = this->records.begin();
-	while (i != this->steps.end() && j != this->records.end())
-	{
-		Transformation *transformation = (*i);
-		std::string replacement = transformation->getName();
-		(*j)=replacement;
-		// increment
-		++i;
-		++j;
-	}
 
+	auto iterator = this->steps.begin();
+	while (iterator != this->steps.end())
+	{
+		Transformation *transformation = (*iterator);
+		this->records = transformation->apply(this->records);
+		// increment
+		++iterator;
+	}
 	this->stage = 3;
 }

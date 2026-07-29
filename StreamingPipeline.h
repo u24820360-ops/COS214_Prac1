@@ -9,6 +9,8 @@ class Pipeline; //forward declare
 
 //includes 
 #include "Pipeline.h"
+#include "ConnectorFactory.h"
+#include "Connector.h"
 
 
 //
