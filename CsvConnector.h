@@ -5,6 +5,7 @@
 
 class CsvConnector : public Connector {
 public:
+    CsvConnector() : Connector("csv") {}
     virtual vector<string> extract();
 };
 

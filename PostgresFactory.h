@@ -2,6 +2,7 @@
 #define POSTGRESFACTORY_H
 
 #include "ConnectorFactory.h"
+#include "PostgresConnector.h"
 
 class PostgresFactory : public ConnectorFactory {
 public:

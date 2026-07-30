@@ -2,6 +2,7 @@
 #define CSVFACTORY_H
 
 #include "ConnectorFactory.h"
+#include "CsvConnector.h"
 
 class CsvFactory : public ConnectorFactory {
 public:

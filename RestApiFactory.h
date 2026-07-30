@@ -2,6 +2,7 @@
 #define RESTAPIFACTORY_H
 
 #include "ConnectorFactory.h"
+#include "RestApiConnector.h"
 
 class RestApiFactory : public ConnectorFactory {
 public:

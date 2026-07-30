@@ -27,9 +27,3 @@ TransformationRegistry::~TransformationRegistry(){
     }
     this->prototypes.clear();
 }
-
-//1.6
-//Connector - This is the Abstract Product class.
-//CsvConnector - This is the Concrete Product class.
-//ConnectorFactory - This is the Abstract Factory class.
-//CsvFactory - This is the Concrete Factory class.
