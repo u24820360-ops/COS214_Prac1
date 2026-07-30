@@ -1,10 +1,30 @@
 TASK 1
+1.1-1.4 Completed
+1.5 The Open-Closed Principle means that software should be open for extension,
+but closed for modification. Factory Method is better because when a new
+Connector for example XMLConnector needs to be added, then it is simply a 
+matter of extending the structure by adding an XMLFactory and XMLConnector 
+as opposed to changing the existing code in the if-else block thus breaking the
+Open-Closed Principle.
+
 1.6 Connector - This is the Abstract Product class.
 CsvConnector - This is the Concrete Product class.
-ConnectorFactory - This is the Abstract Factory class.
-CsvFactory - This is the Concrete Factory class.
+ConnectorFactory - This is the Creator class.
+CsvFactory - This is the Concrete Creator class.
 
 TASK 2
+2.5 A shallow copy duplicates the object's member variables without duplicating any
+dynamically allocated resources and a deep copy duplicates the object's member variables 
+including the duplication of its dynamically allocated resources. Clone returns a deep
+copy of the registered prototype. It must be a deep copy so that changes can be made to 
+each object independently without affecting each other.
+
+2.6
+If two pipelines shared one prototype, that would be problematic because modifications
+could be made to the original or the clone and both objects would be changed. Returning
+a clone() returns a deep copy therefore changes can be made to the original and the clone
+independently. If the registry returned the stored pointer, then both pipelines would 
+receive the exact same Transformation object.
 
 TASK 3
 
