@@ -16,6 +16,8 @@ class Pipeline; //forward declare
 //
 class StreamingPipeline : public Pipeline 
 {
+	public:
+		StreamingPipeline(ConnectorFactory* factory) : Pipeline(factory) {}
 	//methods 
 	protected:
 		void extract() override;

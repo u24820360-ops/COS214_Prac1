@@ -23,7 +23,7 @@ void Pipeline::addStep(Transformation *transformation)
 }
 
 // after protected in UML
-RunCheckpoint *Pipeline::createCheckPoint()
+RunCheckpoint *Pipeline::createCheckpoint()
 {
 	// task 4
 	return new RunCheckpoint(this->stage, this->records);

@@ -24,7 +24,7 @@ public: // public methods
 	void addStep(Transformation *);
 
 	// after protected in UML
-	RunCheckpoint *createCheckPoint();
+	RunCheckpoint *createCheckpoint();
 	void restore(RunCheckpoint *);
 	virtual ~Pipeline();
 

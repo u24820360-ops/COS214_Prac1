@@ -11,6 +11,8 @@ class Pipeline; //forward declare
 //
 class BatchPipeline : public Pipeline 
 {
+	public:
+		BatchPipeline(ConnectorFactory* factory) : Pipeline(factory) {}
 	//methods 
 	protected:
 		void extract();
