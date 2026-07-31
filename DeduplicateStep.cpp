@@ -15,7 +15,7 @@ vector<string> DeduplicateStep::apply(vector<string> temp){
     string check = temp[0];
     fin.push_back(check);
 
-    for (int i = 1; i < temp.size(); i++)
+    for (size_t i = 1; i < temp.size(); i++)
     {
         if (check != temp[i])
         {

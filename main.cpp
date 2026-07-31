@@ -36,8 +36,11 @@ int main ()
 	RunCheckpoint* rcp = bp->createCheckpoint();
 	cm->save(rcp);
 
+	std::cout << std::endl << "Deleting Pipeline..." << std::endl <<std::endl;
 	delete bp;
+	std::cout << std::endl << "Deleting Registry..." << std::endl <<std::endl;
 	delete tr;
+	std::cout << std::endl << "Deleting Checkpoint..." << std::endl <<std::endl;
 	delete cm;
 	std::cout << std::endl << std::endl<< "Program has finished executing" << std::endl;
 	return 0;

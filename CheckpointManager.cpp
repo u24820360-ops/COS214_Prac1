@@ -20,6 +20,6 @@ CheckpointManager::~CheckpointManager()
 	while(iterator != this->history.end()) 
 	{
 		delete (*iterator);
-		(*iterator)=nullptr;
+		++iterator;
 	}
 }
