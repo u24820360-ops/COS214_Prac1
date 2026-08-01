@@ -56,10 +56,10 @@ TransformationRegistry.o : TransformationRegistry.h TransformationRegistry.cpp
 main.o : AggregateByRegionStep.h BatchPipeline.h CheckpointManager.h Connector.h ConnectorFactory.h CsvConnector.h CsvFactory.h DeduplicateStep.h Pipeline.h PostgresConnector.h PostgresFactory.h RestApiConnector.h RestApiFactory.h RunCheckpoint.h StreamingPipeline.h Transformation.h TransformationRegistry.h main.cpp
 	g++ $(flags) -c main.cpp
 
-main : $(objects)
-	g++ $(flags) -o main $(objects)
+engine : $(objects)
+	g++ $(flags) -o engine $(objects)
 
-#EXSTENSIVE TESTING 
+#EXSTENSIVE TESTING Note: no file included 
 testing.o : AggregateByRegionStep.h BatchPipeline.h CheckpointManager.h Connector.h ConnectorFactory.h CsvConnector.h CsvFactory.h DeduplicateStep.h Pipeline.h PostgresConnector.h PostgresFactory.h RestApiConnector.h RestApiFactory.h RunCheckpoint.h StreamingPipeline.h Transformation.h TransformationRegistry.h testing.cpp
 	g++ $(flags) -c testing.cpp
 
@@ -70,17 +70,17 @@ test : testing
 	./testing
 
 
-all : main
+all : engine
 
-run : main 
-	./main
+run : engine 
+	./engine
 
-mem : main
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=valgrind_report.txt ./main
+mem : engine
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=valgrind_report.txt ./engine
 #TESTING MEM CHECK
 testMem : testing
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=testing_valgrind_report.txt ./testing
 
 
 clean : 
-	rm -f *.o main testing && clear 
+	rm -f *.o engine main testing && clear 
