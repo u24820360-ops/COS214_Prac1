@@ -1,4 +1,7 @@
 *desktop.ini
 *.o
-*.pdf
+*COS214_Prac1_2026.pdf
 /main
+*report.txt
+testing.cpp
+testing

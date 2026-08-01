@@ -1,5 +1,6 @@
 flags= -g -std=c++11 -Werror -Wall
 objects=AggregateByRegionStep.o BatchPipeline.o CheckpointManager.o Connector.o ConnectorFactory.o CsvConnector.o CsvFactory.o DeduplicateStep.o Pipeline.o PostgresConnector.o PostgresFactory.o RestApiConnector.o RestApiFactory.o RunCheckpoint.o StreamingPipeline.o Transformation.o TransformationRegistry.o main.o
+testingObjects=AggregateByRegionStep.o BatchPipeline.o CheckpointManager.o Connector.o ConnectorFactory.o CsvConnector.o CsvFactory.o DeduplicateStep.o Pipeline.o PostgresConnector.o PostgresFactory.o RestApiConnector.o RestApiFactory.o RunCheckpoint.o StreamingPipeline.o Transformation.o TransformationRegistry.o testing.o
 
 AggregateByRegionStep.o : AggregateByRegionStep.h AggregateByRegionStep.cpp
 	g++ $(flags) -c AggregateByRegionStep.cpp 
@@ -58,10 +59,28 @@ main.o : AggregateByRegionStep.h BatchPipeline.h CheckpointManager.h Connector.h
 main : $(objects)
 	g++ $(flags) -o main $(objects)
 
+#EXSTENSIVE TESTING 
+testing.o : AggregateByRegionStep.h BatchPipeline.h CheckpointManager.h Connector.h ConnectorFactory.h CsvConnector.h CsvFactory.h DeduplicateStep.h Pipeline.h PostgresConnector.h PostgresFactory.h RestApiConnector.h RestApiFactory.h RunCheckpoint.h StreamingPipeline.h Transformation.h TransformationRegistry.h testing.cpp
+	g++ $(flags) -c testing.cpp
+
+testing : $(testingObjects)
+	g++ $(flags) -o testing $(testingObjects)
+
+test : testing
+	./testing
+
+
 all : main
 
 run : main 
 	./main
 
+mem : main
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=valgrind_report.txt ./main
+#TESTING MEM CHECK
+testMem : testing
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=testing_valgrind_report.txt ./testing
+
+
 clean : 
-	rm -f *.o main && clear 
+	rm -f *.o main testing && clear 

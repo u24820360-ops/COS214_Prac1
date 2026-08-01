@@ -15,6 +15,7 @@ void Pipeline::run()
 	this->extract();
 	this->transform();
 	this->load();
+	// std::cout << "RUN COMPLETE"<<std::endl;
 }
 
 void Pipeline::addStep(Transformation *transformation)

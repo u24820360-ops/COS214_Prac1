@@ -8,7 +8,7 @@ void StreamingPipeline::extract()
 
 	// set records to it's extract and print message accordingly
 	this->records = connector->extract();
-	std::cout << "Streaming extract:" << this->records.size() << "records" << std::endl;
+	std::cout << "Streaming extract: " << this->records.size() << " records" << std::endl;
 	this->stage = 2;
 	//cleans up
 	delete connector;
