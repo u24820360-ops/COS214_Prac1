@@ -59,15 +59,15 @@ main.o : AggregateByRegionStep.h BatchPipeline.h CheckpointManager.h Connector.h
 engine : $(objects)
 	g++ $(flags) -o engine $(objects)
 
-#EXSTENSIVE TESTING Note: no file included 
-testing.o : AggregateByRegionStep.h BatchPipeline.h CheckpointManager.h Connector.h ConnectorFactory.h CsvConnector.h CsvFactory.h DeduplicateStep.h Pipeline.h PostgresConnector.h PostgresFactory.h RestApiConnector.h RestApiFactory.h RunCheckpoint.h StreamingPipeline.h Transformation.h TransformationRegistry.h testing.cpp
-	g++ $(flags) -c testing.cpp
+# #EXSTENSIVE TESTING Note: no file included 
+# testing.o : AggregateByRegionStep.h BatchPipeline.h CheckpointManager.h Connector.h ConnectorFactory.h CsvConnector.h CsvFactory.h DeduplicateStep.h Pipeline.h PostgresConnector.h PostgresFactory.h RestApiConnector.h RestApiFactory.h RunCheckpoint.h StreamingPipeline.h Transformation.h TransformationRegistry.h testing.cpp
+# 	g++ $(flags) -c testing.cpp
 
-testing : $(testingObjects)
-	g++ $(flags) -o testing $(testingObjects)
+# testing : $(testingObjects)
+# 	g++ $(flags) -o testing $(testingObjects)
 
-test : testing
-	./testing
+# test : testing
+# 	./testing
 
 
 all : engine
@@ -77,9 +77,10 @@ run : engine
 
 mem : engine
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=valgrind_report.txt ./engine
-#TESTING MEM CHECK
-testMem : testing
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=testing_valgrind_report.txt ./testing
+
+# #TESTING MEM CHECK
+# testMem : testing
+# 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=testing_valgrind_report.txt ./testing
 
 
 clean : 
