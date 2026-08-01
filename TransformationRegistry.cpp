@@ -1,6 +1,6 @@
 #include "TransformationRegistry.h"
 
-void TransformationRegistry::registerStep(string key, Transformation* prototype){
+void TransformationRegistry::registerStep(std::string key, Transformation* prototype){
     auto it = this->prototypes.find(key);
     if (it != this->prototypes.end())
     {
@@ -11,7 +11,7 @@ void TransformationRegistry::registerStep(string key, Transformation* prototype)
     this->prototypes[key] = prototype;
 }
 
-Transformation* TransformationRegistry::create(string key){
+Transformation* TransformationRegistry::create(std::string key){
     auto it = this->prototypes.find(key);
     if (it == this->prototypes.end())
     {

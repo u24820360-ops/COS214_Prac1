@@ -6,7 +6,7 @@
 class RestApiConnector : public Connector {
 public:
     RestApiConnector() : Connector("restapi") {}
-    virtual vector<string> extract();
+    virtual std::vector<std::string> extract();
 };
 
 #endif

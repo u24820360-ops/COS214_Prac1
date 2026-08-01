@@ -1,10 +1,10 @@
 #include "Connector.h"
 
-Connector::Connector(string source){
+Connector::Connector(std::string source){
     this->source = source;
 }
     
-string Connector::getSource(){
+std::string Connector::getSource(){
     return this->source;
 }
 

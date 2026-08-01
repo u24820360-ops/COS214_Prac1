@@ -6,17 +6,17 @@
 #include <vector>
 #include <map>
 
-using namespace std;
+
 
 class Transformation {
 protected:
-    string name;
+    std::string name;
 
 public:
-    Transformation(string);
+    Transformation(std::string);
     virtual Transformation* clone() = 0;
-    virtual vector<string> apply(vector<string>) = 0;
-    string getName();
+    virtual std::vector<std::string> apply( std::vector<std::string>) = 0;
+    std::string getName();
     virtual ~Transformation();
 };
 

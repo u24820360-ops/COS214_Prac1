@@ -1,10 +1,10 @@
 #include "Transformation.h"
 
-Transformation::Transformation(string name){
+Transformation::Transformation(std::string name){
     this->name = name;
 }
 
-string Transformation::getName(){
+std::string Transformation::getName(){
     return this->name;
 }
 

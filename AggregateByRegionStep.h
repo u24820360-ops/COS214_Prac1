@@ -2,12 +2,16 @@
 #define AGGREGATEBYREGIONSTEP_H
 
 #include "Transformation.h"
+#include <string>
+#include <vector>
+
+class Transformation;
 
 class AggregateByRegionStep : public Transformation {
 public:
-    AggregateByRegionStep() : Transformation("aggregate") {}
-    virtual Transformation* clone();
-    virtual vector<string> apply(vector<string>);
+	AggregateByRegionStep() : Transformation("aggregate") {}
+	virtual Transformation* clone();
+	virtual std::vector<std::string> apply(std::vector<std::string>);
 };
 
 #endif

@@ -19,7 +19,7 @@ class CheckpointManager
 		~CheckpointManager();
 	
 	private:
-	std::vector<RunCheckpoint*> history;
+	 std::vector<RunCheckpoint*> history;
 	
 };
 

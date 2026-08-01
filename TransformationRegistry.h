@@ -5,11 +5,11 @@
 
 class TransformationRegistry {
 private:
-    map<string, Transformation*> prototypes;
+    std::map<std::string, Transformation*> prototypes;
 
 public:
-    void registerStep(string, Transformation*);
-    Transformation* create(string);
+    void registerStep(std::string, Transformation*);
+    Transformation* create(std::string);
     virtual ~TransformationRegistry();
 };
 

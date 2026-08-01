@@ -37,9 +37,9 @@ protected:
 	// member variables
 protected:
 	ConnectorFactory *factory;
-	std::vector<Transformation *> steps;
+	 std::vector<Transformation *> steps;
 	int stage;
-	std::vector<std::string> records;
+	 std::vector<std::string> records;
 };
 
 #endif

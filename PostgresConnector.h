@@ -6,7 +6,7 @@
 class PostgresConnector : public Connector {
 public:
     PostgresConnector() : Connector("postgres") {}
-    virtual vector<string> extract();
+    virtual std::vector<std::string> extract();
 };
 
 #endif

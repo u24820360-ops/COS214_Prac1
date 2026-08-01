@@ -6,16 +6,16 @@
 #include <vector>
 #include <map>
 
-using namespace std;
+
 
 class Connector {
 protected:
-    string source;
+    std::string source;
 
 public:
-    Connector(string);
-    virtual vector<string> extract() = 0;
-    string getSource();
+    Connector(std::string);
+    virtual std::vector<std::string> extract() = 0;
+    std::string getSource();
     virtual ~Connector();
 };
 
