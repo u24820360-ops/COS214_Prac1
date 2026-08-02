@@ -36,6 +36,7 @@ int main ()
 	RunCheckpoint* rcp = bp->createCheckpoint();
 	cm->save(rcp);
 
+	delete rcp;
 	delete bp;
 	delete tr;
 	delete cm;

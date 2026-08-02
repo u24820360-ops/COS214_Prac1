@@ -18,11 +18,11 @@ RunCheckpoint *CheckpointManager::undo()
 
 CheckpointManager::~CheckpointManager()
 {
-	auto iterator = this->history.begin(); // RunCheckpoint* cp in history
-	while (iterator != this->history.end())
-	{
-		delete (*iterator);
-		(*iterator) = nullptr;
-		++iterator;
-	}
+	// auto iterator = this->history.begin(); // RunCheckpoint* cp in history
+	// while (iterator != this->history.end())
+	// {
+	// 	delete (*iterator);
+	// 	(*iterator) = nullptr;
+	// 	++iterator;
+	// }
 }
